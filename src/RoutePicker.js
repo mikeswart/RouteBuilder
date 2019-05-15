@@ -28,7 +28,7 @@ export class RoutePicker extends Component {
                 <h3>{this.state.name}</h3>
                 <select onChange={this.handleChange}> {
                     this.state.routes.map((route, index) => (
-                        <option key={route.name} value={index}>{route.name}</option>
+                        <option key={route.name} value={index}>{route.name} ({route.mileage})</option>
                     ))};
         </select>
             </div>

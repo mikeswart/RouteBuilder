@@ -52,24 +52,22 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <h1 className="App-title">Route Builder</h1>
-        </header>
-        <div className="longRoutePicker" class="RouteSelectorContainer">
-          <RoutePicker name="Long Routes" routes={this.state.LongRoutes} onSelectedRouteChanged={this.longRouteChanged} />
-          <RideWithGpsEmbed routeId="long" embedCode={this.state.longRoute.rideWithGpsId} width="300" height="500"/>
+        <div class="container">
+          <div className="longRoutePicker" class="routePickerContainer">
+            <RoutePicker name="Long Routes" routes={this.state.LongRoutes} onSelectedRouteChanged={this.longRouteChanged} />
+            <RideWithGpsEmbed routeId="long" embedCode={this.state.longRoute.rideWithGpsId} width="300" height="500" />
+          </div>
+          <div className="shortRoutePicker" class="routePickerContainer">
+            <RoutePicker name="Short Routes" routes={this.state.shortRoutes} onSelectedRouteChanged={this.shortRouteChanged} />
+            <RideWithGpsEmbed routeId="short" embedCode={this.state.shortRoute.rideWithGpsId} width="300" height="500" />
+          </div>
         </div>
-        <div className="shortRoutePicker" class="RouteSelectorContainer">
-          <RoutePicker name="Short Routes" routes={this.state.shortRoutes} onSelectedRouteChanged={this.shortRouteChanged} />
-          <RideWithGpsEmbed routeId="short" embedCode={this.state.shortRoute.rideWithGpsId} width="300" height="500"/>
-        </div>
-        
-        <br />
-
-        <textarea width="300" readOnly value={this.buildRouteOutputText()}></textarea>
-        <div>
-          <RouteLink route={this.state.longRoute} />
-          <RouteLink route={this.state.shortRoute} />
+        <div class="resultContainer">
+            <textarea readOnly className="itemStretch" value={this.buildRouteOutputText()}></textarea>
+          <div class="routeLinkContainer">
+            <RouteLink route={this.state.longRoute} />
+            <RouteLink route={this.state.shortRoute} />
+          </div>
         </div>
       </div>
     );
